@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.navbar .container {
+  width: 100%;
+}
+
+.home-container {
+  margin-top: 60px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -12,6 +20,17 @@
   height: 150px;
   padding: 20px;
   color: white;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  background-color: #101010;
+  color: whitesmoke;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
 }
 
 .App-intro {
