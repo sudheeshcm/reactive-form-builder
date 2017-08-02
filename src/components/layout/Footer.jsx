@@ -1,15 +1,13 @@
 import React from 'react';
 
-
 export default class Footer extends React.Component {
-  componentWillMount() {
-  }
+  componentWillMount() {}
   render() {
     return (
       <footer>
         <div className="footer">
           <div className="col-lg-12">
-            <p>Copyright &copy; REDUX-NODE-APP</p>
+            <p>Copyright &copy; REACTIVE-FORM-BUILDER</p>
           </div>
         </div>
       </footer>

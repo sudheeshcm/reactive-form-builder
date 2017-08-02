@@ -1,0 +1,36 @@
+.form-builder {
+  padding: 5px;
+  background-color: lightgrey;
+
+  & .block {
+    display: inline-block;
+    border: solid lightgrey 2px;
+    border-collapse: separate;
+    height: 550px;
+  }
+
+  &-toolbox {
+    &-container {
+      width: 20%;
+      padding: 5px;
+      background-color: white;
+    }
+  }
+
+  &-draggable-area {
+    &-container {
+      width: 60%;
+      height: 100%;
+      padding: 5px;
+      background-color: white;
+    }
+  }
+
+  &-property-window {
+    &-container {
+      width: 20%;
+      padding: 5px;
+      background-color: white;
+    }
+  }
+}

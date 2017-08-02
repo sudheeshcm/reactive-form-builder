@@ -5,7 +5,7 @@ import Footer from '../components/layout/Footer';
 import Nav from '../components/layout/Nav';
 
 import Dashboard from './dashboard';
-import FormBuilder from './form-builder';
+import FormBuilder from './form-builder/form-builder';
 
 class Home extends React.Component {
   static propTypes = {
