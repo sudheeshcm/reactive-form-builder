@@ -9,7 +9,7 @@ class Dashboard extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>React Custom Form Builder</h2>
+          <h2>Reactive Form Builder</h2>
         </div>
         <p className="App-intro">
           React based dynamic form builder application that lets you create a
