@@ -6,11 +6,23 @@
     display: inline-block;
     border: solid lightgrey 2px;
     border-collapse: separate;
-    height: 550px;
+    height: auto;
+    min-height: 550px;
+    overflow-y: auto;
+    vertical-align: top;
+
+    &-heading {
+      background-color: lightgray;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 2px;
+      margin-bottom: 5px;
+    }
   }
 
   &-toolbox {
     &-container {
+      display: inline-block;
       width: 20%;
       padding: 5px;
       background-color: white;
@@ -22,12 +34,14 @@
       width: 60%;
       height: 100%;
       padding: 5px;
+      overflow-x: hidden;
       background-color: white;
     }
   }
 
   &-property-window {
     &-container {
+      display: inline-block;
       width: 20%;
       padding: 5px;
       background-color: white;

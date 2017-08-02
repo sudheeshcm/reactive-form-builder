@@ -1,14 +1,15 @@
 import React from 'react';
 
-class BaseItem extends React.Component {
+export default class BaseItem extends React.Component {
   constructor() {
     super();
     this.state = {
       styles: {
         color: 'blue',
-        'font-size': '16px',
-        width: '40px',
-        height: '20px'
+        fontSize: '16px',
+        width: '150px',
+        height: '30px',
+        border: 'solid black 1px'
       }
     };
   }
