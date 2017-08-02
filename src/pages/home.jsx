@@ -7,13 +7,11 @@ import Nav from '../components/layout/Nav';
 import Dashboard from './dashboard';
 import FormBuilder from './form-builder';
 
-
 class Home extends React.Component {
   static propTypes = {
-    location: PropTypes.object.isRequired,
-  }
-  componentWillMount() {
-  }
+    location: PropTypes.object.isRequired
+  };
+  componentWillMount() {}
   render() {
     const { location } = this.props;
     return (
@@ -21,7 +19,11 @@ class Home extends React.Component {
         <Nav location={location} />
         <div className="home-container">
           <Route path="/" exact component={Dashboard} />
-          <Route path="/form-builder" name="form-builder" component={FormBuilder} />
+          <Route
+            path="/form-builder"
+            name="form-builder"
+            component={FormBuilder}
+          />
         </div>
         <Footer />
       </div>
