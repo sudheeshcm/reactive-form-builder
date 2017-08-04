@@ -111,6 +111,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "babel-preset-stage-0": "^6.24.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",

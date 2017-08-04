@@ -34,6 +34,7 @@
       "templateStrings": true,
       "unicodeCodePointEscapes": true,
       "globalReturn": true,
+      "experimentalDecorater": true,
       "jsx": true
     }
   },
@@ -47,6 +48,7 @@
     "react/forbid-prop-types": 0,
     "comma-dangle": 0,
     "class-methods-use-this": 0,
-    "no-noninteractive-element-interactions": 0
+    "no-noninteractive-element-interactions": 0,
+    "no-find-dom-node": 0
   }
 }

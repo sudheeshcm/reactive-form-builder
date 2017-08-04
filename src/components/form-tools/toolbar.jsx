@@ -326,7 +326,7 @@ export default class Toolbar extends Component {
   render() {
     return (
       <div className="react-formbuilder-toolbar">
-        <h4 className="tool-box-header">Toolbox</h4>
+        <h4 className="form-builder-header">Toolbox</h4>
         <ul className="tool-box">
           {this.state.items.map(item =>
             <ToolbarItem

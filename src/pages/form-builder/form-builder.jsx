@@ -18,11 +18,12 @@ class FormBuilder extends React.Component {
           </div>
         </div>
         <div className="block form-builder-draggable-area-container">
+          <div className="form-builder-header">Draggable Area</div>
           <DragContainer />
         </div>
         <div className="block form-builder-property-window-container">
           <div className="form-builder-property-window">
-            <div className="block-heading">Property Window</div>
+            <div className="form-builder-header">Property Window</div>
           </div>
         </div>
       </div>
