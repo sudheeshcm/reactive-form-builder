@@ -14,7 +14,7 @@ export default class Toolbar extends Component {
 
   render() {
     return (
-      <li>
+      <li className="item-list-li">
         <button className="tool-item" onClick={this.props.onClick}>
           <span className="tool-item-icon">
             <i className={this.props.data.icon} />

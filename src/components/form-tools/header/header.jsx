@@ -5,7 +5,6 @@ import BaseItem from './../../base-item';
 export default class Header extends BaseItem {
   constructor() {
     super();
-    console.log('state: ', this.state);
     this.state = {
       ...this.state,
       styles: {
@@ -15,7 +14,6 @@ export default class Header extends BaseItem {
       },
       defaultText: 'Header'
     };
-    console.log('final state: ', this.state);
   }
 
   render() {
