@@ -6,8 +6,8 @@
     display: inline-block;
     border: solid lightgrey 2px;
     border-collapse: separate;
-    height: auto;
-    min-height: 550px;
+    // height: auto;
+    height: calc(100vh - 100px);
     overflow-y: auto;
     vertical-align: top;
 

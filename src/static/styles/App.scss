@@ -18,7 +18,7 @@
 }
 
 .App-header {
-  // background-color: #222;
+  background-color: white;
   height: 150px;
   padding: 20px;
   color: white;
@@ -33,6 +33,7 @@
   width: 100%;
   box-sizing: border-box;
   padding: 5px;
+  height: 40px;
 }
 
 .App-intro {
@@ -46,4 +47,36 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.tool-box {
+  padding: 5px;
+}
+
+.tool-box-header {
+  font-weight: 600;
+  text-align: center;
+  border-bottom: solid lightgray 0.5px;
+  padding-bottom: 10px;
+}
+
+.tool-item {
+  cursor: pointer;
+  list-style: none;
+  margin: 5px;
+  padding: 10px;
+  border: 1px dashed #ddd;
+  background-color: white;
+  width: 100%;
+  text-align: left;
+  margin: -8px 1px;
+  outline: none;
+
+  &:hover {
+    background-color: #d1d1d1;
+  }
+}
+
+.tool-item-icon {
+  margin-right: 5px;
 }
