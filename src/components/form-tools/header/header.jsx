@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import BaseItem from './../../base-item';
-
-export default class Header extends BaseItem {
+export default class Header extends Component {
   constructor() {
     super();
     this.state = {
       ...this.state,
       styles: {
-        ...this.state.styles,
         color: 'green',
-        fontSize: '20px'
+        fontSize: '20px',
+        width: '200px'
       },
       defaultText: 'Header'
     };

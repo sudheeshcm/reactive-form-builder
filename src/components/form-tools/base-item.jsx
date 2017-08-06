@@ -82,40 +82,17 @@ function collect(connect, monitor) {
   };
 }
 
-/* @DropTarget('tool-item', itemTarget, connect => ({
-  connectDropTarget: connect.dropTarget(),
-}))
-@DragSource('tool-item', itemSource, (connect, monitor) => ({
-  connectDragSource: connect.dragSource(),
-  isDragging: monitor.isDragging(),
-})) */
 class BaseItem extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
-    // index: PropTypes.number.isRequired,
     isDragging: PropTypes.bool.isRequired,
-    // id: PropTypes.any.isRequired,
-    text: PropTypes.string.isRequired
-    // moveItem: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired
   };
-
-  constructor() {
-    super();
-    this.state = {
-      styles: {
-        color: 'blue',
-        fontSize: '16px',
-        width: '150px',
-        height: '30px',
-        border: 'solid black 1px'
-      }
-    };
-  }
 
   render() {
     const {
-      text,
+      children,
       isDragging,
       connectDragSource,
       connectDropTarget
@@ -125,7 +102,7 @@ class BaseItem extends Component {
     return connectDragSource(
       connectDropTarget(
         <div style={{ ...style, opacity }}>
-          {text}
+          {children}
         </div>
       )
     );

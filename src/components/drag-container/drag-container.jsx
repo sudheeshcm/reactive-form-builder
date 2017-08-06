@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
-import update from 'react/lib/update';
-// DropTarget,
+import PropTypes from 'prop-types';
+// import update from 'immutability-helper';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import { connect } from 'react-redux';
 
 import './drag-container.css';
-import BaseItem from './../base-item';
+import BaseItem from './../form-tools/base-item';
+import HeaderItem from './../form-tools/header/header';
+import moveItems from './../../actions/elementActions';
 
-/* const toolTarget = {
-  drop() {
-  },
-};
- */
-// @DragDropContext(HTML5Backend)
-/* @DropTarget('tool-item', toolTarget, connect => ({
-  connectDropTarget: connect.dropTarget(),
-})) */
+// @connect(store => ({
+//   items: store.items,
+// }))
 class DragContainer extends Component {
   static propTypes = {
-    // connectDropTarget: PropTypes.func.isRequired
+    items: PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired
   };
 
-  constructor(props) {
+  /* constructor(props) {
     super(props);
     this.moveItem = this.moveItem.bind(this);
     this.state = {
@@ -44,23 +42,26 @@ class DragContainer extends Component {
         }
       ]
     };
-  }
+  } */
 
-  moveItem(dragIndex, hoverIndex) {
-    const { items } = this.state;
-    const dragitem = items[dragIndex];
-
+  /* moveItem(dragIndex, hoverIndex) {
+    const { items } = this.prop;
+    const dragItem = items[dragIndex];
     this.setState(
       update(this.state, {
         items: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, dragitem]]
+          $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
         }
       })
     );
+  } */
+
+  moveItem(dragIndex, hoverIndex) {
+    this.props.dispatch(moveItems(dragIndex, hoverIndex));
   }
 
   render() {
-    const { items } = this.state;
+    const { items } = this.props;
     return (
       <div className="form-builder-draggable-area">
         {items.map((item, i) =>
@@ -70,11 +71,19 @@ class DragContainer extends Component {
             id={item.id}
             text={item.text}
             moveItem={this.moveItem}
-          />
+          >
+            <HeaderItem />
+          </BaseItem>
         )}
       </div>
     );
   }
 }
 
-export default DragDropContext(HTML5Backend)(DragContainer);
+// DragContainer = connect()(DragContainer);
+
+/* function mapStore(store => {
+  items: store.items
+});
+ */
+export default connect()(DragDropContext(HTML5Backend)(DragContainer));
