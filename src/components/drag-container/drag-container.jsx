@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import './drag-container.scss';
 import BaseItem from './../form-tools/base-item';
 import HeaderItem from './../form-tools/header/header';
-import moveItems from './../../actions/elementActions';
+import { moveItems } from './../../actions/elementActions';
+
+import './drag-container.scss';
 
 class DragContainer extends Component {
   static propTypes = {

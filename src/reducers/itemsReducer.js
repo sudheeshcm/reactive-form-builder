@@ -26,10 +26,11 @@ const reducer = (
   action
 ) => {
   switch (action.type) {
-    case 'ADD_ITEM_FULFILLED': {
+    case 'ADD_ITEM': {
+      const updatedItems = update(state.items, { $push: [action.payload] });
       return {
         ...state,
-        todos: action.payload
+        items: updatedItems
       };
     }
     case 'ADD_ITEM_REJECTED': {
@@ -63,6 +64,7 @@ const reducer = (
       return updatedState;
     }
     default: {
+      console.log('Default reducer invoked');
       return state;
     }
   }

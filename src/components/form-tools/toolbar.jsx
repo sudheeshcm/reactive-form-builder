@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ToolbarItem from './toolbar-item';
+import { connect } from 'react-redux';
 
-export default class Toolbar extends Component {
+import ToolbarItem from './toolbar-item';
+import { addItem } from './../../actions/elementActions';
+
+class Toolbar extends Component {
   static propTypes = {
-    items: PropTypes.object
+    items: PropTypes.object,
+    addItemToStore: PropTypes.func.isRequired
   };
   static defaultProps = {
     items: null
@@ -22,7 +26,7 @@ export default class Toolbar extends Component {
 
   onClick(item) {
     const elementOptions = {
-      id: 1,
+      id: 11,
       element: item.key,
       text: item.name,
       static: item.static,
@@ -88,9 +92,7 @@ export default class Toolbar extends Component {
       elementOptions.options = this.defaultItemOptions(elementOptions.element);
     }
 
-    console.log('ElementOptions: ', elementOptions);
-
-    // ElementActions.createElement(elementOptions);
+    this.props.addItemToStore(elementOptions);
   }
 
   defaultItems() {
@@ -340,3 +342,15 @@ export default class Toolbar extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  addItemToStore: item => {
+    console.log('Add item to store called, dispatching action', item);
+    dispatch(addItem(item));
+    dispatch({
+      type: 'TEST'
+    });
+  }
+});
+
+export default connect(null, mapDispatchToProps)(Toolbar);
