@@ -6,7 +6,7 @@ export default class Header extends Component {
     this.state = {
       ...this.state,
       styles: {
-        color: 'green',
+        color: 'grey',
         fontSize: '20px',
         width: '200px'
       },

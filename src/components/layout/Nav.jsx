@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Button } from 'react-bootstrap';
 
@@ -6,7 +7,7 @@ export default class Nav extends React.Component {
   constructor() {
     super();
     this.state = {
-      collapsed: true,
+      collapsed: true
     };
   }
   toggleCollapse() {
@@ -53,7 +54,8 @@ export default class Nav extends React.Component {
                 to="form-builder"
                 activeClassName="active"
                 onClick={() => this.toggleCollapse()}
-              >FORM BUILDER
+              >
+                FORM BUILDER
               </NavLink>
             </li>
           </ul>
@@ -63,5 +65,5 @@ export default class Nav extends React.Component {
   }
 }
 Nav.contextTypes = {
-  router: React.PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired
 };

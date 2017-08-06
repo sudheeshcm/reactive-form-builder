@@ -1,13 +1,13 @@
 // import _ from 'lodash';
 import update from 'immutability-helper';
 
-export default function reducer(
+const reducer = (
   state = {
     error: null,
     items: [
       {
         id: 1,
-        text: 'Write a cool JS library'
+        text: 'This is a demo header'
       },
       {
         id: 2,
@@ -24,7 +24,7 @@ export default function reducer(
     ]
   },
   action
-) {
+) => {
   switch (action.type) {
     case 'ADD_ITEM_FULFILLED': {
       return {
@@ -50,24 +50,22 @@ export default function reducer(
         error: action.payload
       };
     }
-    case 'MOVE_ITEM': {
-      const { items } = this.state;
+    case 'MOVE_ITEMS': {
+      const { items } = state;
       const dragIndex = action.payload.dragIndex;
       const hoverIndex = action.payload.hoverIndex;
       const dragItem = items[dragIndex];
-      this.setState(
-        update(this.state, {
-          items: {
-            $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
-          }
-        })
-      );
-      return this.state;
+      const updatedState = update(state, {
+        items: {
+          $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
+        }
+      });
+      return updatedState;
     }
     default: {
-      return {
-        ...state
-      };
+      return state;
     }
   }
-}
+};
+
+export default reducer;

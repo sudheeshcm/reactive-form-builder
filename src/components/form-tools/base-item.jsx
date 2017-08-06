@@ -84,6 +84,7 @@ function collect(connect, monitor) {
 
 class BaseItem extends Component {
   static propTypes = {
+    text: PropTypes.string.isRequired,
     connectDragSource: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
@@ -92,6 +93,7 @@ class BaseItem extends Component {
 
   render() {
     const {
+      text,
       children,
       isDragging,
       connectDragSource,
@@ -103,6 +105,7 @@ class BaseItem extends Component {
       connectDropTarget(
         <div style={{ ...style, opacity }}>
           {children}
+          {text}
         </div>
       )
     );

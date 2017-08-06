@@ -1,11 +1,9 @@
-export default function moveItems(dragIndex, hoverIndex) {
-  return function sort(dispatch) {
-    dispatch({
-      type: 'MOVE_ITEMS',
-      payload: {
-        dragIndex,
-        hoverIndex
-      }
-    });
-  };
-}
+const moveItems = (dragIndex, hoverIndex) => ({
+  type: 'MOVE_ITEMS',
+  payload: {
+    dragIndex,
+    hoverIndex
+  }
+});
+
+export default moveItems;
