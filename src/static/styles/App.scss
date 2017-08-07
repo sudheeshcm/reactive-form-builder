@@ -26,13 +26,12 @@
 
 .footer {
   position: absolute;
-  bottom: 0;
   text-align: center;
   background-color: #101010;
-  color: whitesmoke;
+  font-size: 10px;
+  color: grey;
   width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
+  padding-top: 10px;
   height: 40px;
 }
 
@@ -85,4 +84,23 @@
 
 .tool-item-icon {
   margin-right: 5px;
+}
+
+#add-item-popover {
+  top: 100px !important;
+  left: 236px !important;
+
+  & .arrow {
+    top: 50% !important;
+  }
+}
+
+#sort-item-popover {
+  top: 35px !important;
+  left: 750px !important;
+}
+
+.popover-title {
+  font-weight: bold;
+  background-color: #ebebeb;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 import ToolbarItem from './toolbar-item';
 import { addItem } from './../../actions/elementActions';
@@ -25,9 +26,20 @@ class Toolbar extends Component {
     };
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.addItemOverlay.show();
+    }, 1000);
+    setTimeout(() => {
+      this.addItemOverlay.hide();
+    }, 5000);
+  }
+
   onClick(item) {
+    this.addItemOverlay.hide();
+    const id = this.getRandomInt();
     const elementOptions = {
-      id: this.getRandomInt(),
+      id,
       element: item.key,
       text: item.name,
       static: item.static,
@@ -82,7 +94,7 @@ class Toolbar extends Component {
     }
 
     if (item.field_name) {
-      elementOptions.field_name = item.field_name + 1;
+      elementOptions.field_name = item.field_name + id;
     }
 
     if (item.label) {
@@ -96,16 +108,36 @@ class Toolbar extends Component {
     this.props.addItemToStore(elementOptions);
   }
 
-  getRandomInt(min = 5, max = 100) {
+  getRandomInt(min = 5, max = 10000) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  addItemPopover = (
+    <Popover
+      id="add-item-popover"
+      placement="right"
+      positionLeft={236}
+      positionTop={100}
+      title="Add new Items.!"
+    >
+      Click on Items in Toolbox to add them to your Form.
+    </Popover>
+  );
+
   render() {
     return (
       <div className="react-formbuilder-toolbar">
-        <h4 className="form-builder-header">Toolbox</h4>
+        <OverlayTrigger
+          ref={overlay => {
+            this.addItemOverlay = overlay;
+          }}
+          placement="right"
+          overlay={this.addItemPopover}
+        >
+          <h4 className="form-builder-header">Toolbox</h4>
+        </OverlayTrigger>
         <ul className="tool-box">
           {this.state.items.map(item =>
             <ToolbarItem
