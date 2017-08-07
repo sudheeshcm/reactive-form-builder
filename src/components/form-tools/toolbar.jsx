@@ -37,14 +37,20 @@ class Toolbar extends Component {
 
   onClick(item) {
     this.addItemOverlay.hide();
+
     const id = this.getRandomInt();
     const elementOptions = {
       id,
       element: item.key,
-      text: item.name,
+      text: item.text,
       static: item.static,
       required: false
     };
+
+    if (item && item.key && item.key === 'HBox') {
+      this.addHBox(elementOptions);
+      return;
+    }
 
     if (item.static) {
       elementOptions.bold = false;
@@ -71,22 +77,24 @@ class Toolbar extends Component {
       elementOptions.href = item.href;
     }
 
-    if (item.key === 'Image') {
-      elementOptions.src = item.src;
-    }
-
-    if (item.key === 'Download') {
-      elementOptions.href = item.href;
-      elementOptions.file_path = item.file_path;
-    }
-
-    if (item.key === 'Range') {
-      elementOptions.step = item.step;
-      elementOptions.default_value = item.default_value;
-      elementOptions.min_value = item.min_value;
-      elementOptions.max_value = item.max_value;
-      elementOptions.min_label = item.min_label;
-      elementOptions.max_label = item.max_label;
+    switch (item.key) {
+      case 'Image':
+        elementOptions.src = item.src;
+        break;
+      case 'Download':
+        elementOptions.href = item.href;
+        elementOptions.file_path = item.file_path;
+        break;
+      case 'Range':
+        elementOptions.step = item.step;
+        elementOptions.default_value = item.default_value;
+        elementOptions.min_value = item.min_value;
+        elementOptions.max_value = item.max_value;
+        elementOptions.min_label = item.min_label;
+        elementOptions.max_label = item.max_label;
+        break;
+      default:
+        break;
     }
 
     if (item.defaultValue) {
@@ -125,6 +133,11 @@ class Toolbar extends Component {
       Click on Items in Toolbox to add them to your Form.
     </Popover>
   );
+
+  addHBox(options) {
+    console.log('Add H Box now', options);
+    this.props.addItemToStore(options);
+  }
 
   render() {
     return (

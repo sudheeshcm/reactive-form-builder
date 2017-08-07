@@ -67,25 +67,32 @@ export const defaultItemOptions = element => {
 
 export const defaultItems = () => [
   {
+    key: 'HBox',
+    name: 'H Box',
+    icon: 'fa fa-object-group',
+    static: true,
+    isHBox: true
+  },
+  {
     key: 'Header',
     name: 'Header Text',
     icon: 'fa fa-header',
     static: true,
-    content: 'Placeholder Text...'
+    text: 'Placeholder Text...'
   },
   {
     key: 'Label',
     name: 'Label',
     static: true,
     icon: 'fa fa-font',
-    content: 'Placeholder Text...'
+    text: 'Placeholder Text...'
   },
   {
     key: 'Paragraph',
     name: 'Paragraph',
     static: true,
     icon: 'fa fa-paragraph',
-    content: 'Placeholder Text...'
+    text: 'Placeholder Text...'
   },
   {
     key: 'LineBreak',
@@ -191,7 +198,7 @@ export const defaultItems = () => [
     name: 'Web site',
     icon: 'fa fa-link',
     static: true,
-    content: 'Placeholder Web site link ...',
+    text: 'Placeholder Web site link ...',
     href: 'http://www.example.com'
   },
   {
@@ -199,7 +206,7 @@ export const defaultItems = () => [
     name: 'File Attachment',
     icon: 'fa fa-file',
     static: true,
-    content: 'Placeholder file name ...',
+    text: 'Placeholder file name ...',
     field_name: 'download_',
     file_path: '',
     _href: ''
@@ -216,12 +223,5 @@ export const defaultItems = () => [
     max_value: 5,
     min_label: 'Easy',
     max_label: 'Difficult'
-  },
-  {
-    key: 'Camera',
-    name: 'Camera',
-    icon: 'fa fa-camera',
-    label: 'Placeholder Label',
-    field_name: 'camera_'
   }
 ];

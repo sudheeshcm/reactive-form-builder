@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
 
-const style = {
-  border: '1px dashed gray',
-  padding: '0.5rem 1rem',
-  marginBottom: '.5rem',
-  backgroundColor: 'white',
-  cursor: 'move'
-};
-
 const itemSource = {
   beginDrag(props) {
     return {
@@ -82,9 +74,9 @@ function collect(connect, monitor) {
   };
 }
 
-class BaseItem extends Component {
+class DraggableItem extends Component {
   static propTypes = {
-    text: PropTypes.string.isRequired,
+    // text: PropTypes.string.isRequired,
     connectDragSource: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
@@ -93,19 +85,17 @@ class BaseItem extends Component {
 
   render() {
     const {
-      text,
+      // text,
       children,
       isDragging,
       connectDragSource,
       connectDropTarget
     } = this.props;
-    const opacity = isDragging ? 0 : 1;
 
     return connectDragSource(
       connectDropTarget(
-        <div style={{ ...style, opacity }}>
+        <div className={`sortable-item ${isDragging ? 'dragging' : ''}`}>
           {children}
-          {text}
         </div>
       )
     );
@@ -113,5 +103,5 @@ class BaseItem extends Component {
 }
 
 export default DragSource('tool-item', itemSource, collect)(
-  DropTarget('tool-item', itemTarget, collectDrop)(BaseItem)
+  DropTarget('tool-item', itemTarget, collectDrop)(DraggableItem)
 );

@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Header extends Component {
-  constructor() {
-    super();
+  static propTypes = {
+    item: PropTypes.object.isRequired
+  };
+
+  constructor(props) {
+    super(props);
     this.state = {
       ...this.state,
       styles: {
         color: 'grey',
-        fontSize: '20px',
-        width: '200px'
+        fontSize: '20px'
       },
-      defaultText: 'Header'
+      defaultText: 'Header Text'
     };
   }
 
   render() {
+    const { item } = this.props;
     return (
-      <div style={this.state.styles}>
-        {this.state.defaultText}
+      <div style={item.styles || this.state.styles}>
+        {item.text || this.state.defaultText}
       </div>
     );
   }

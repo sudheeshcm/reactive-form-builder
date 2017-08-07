@@ -7,19 +7,21 @@ const reducer = (
     items: [
       {
         id: 1,
-        text: 'This is a demo header'
+        element: 'Header',
+        text: 'Header Text',
+        static: true
       },
       {
         id: 2,
-        text: 'Make it generic enough'
+        element: 'Header',
+        text: 'Second Demo Heading',
+        static: true
       },
       {
         id: 3,
-        text: 'Write README'
-      },
-      {
-        id: 4,
-        text: 'Create some examples'
+        element: 'Header',
+        text: '3rd Demo Heading',
+        static: true
       }
     ]
   },
