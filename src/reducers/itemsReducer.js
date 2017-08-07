@@ -64,7 +64,6 @@ const reducer = (
       return updatedState;
     }
     default: {
-      console.log('Default reducer invoked');
       return state;
     }
   }
