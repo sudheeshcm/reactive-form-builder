@@ -4,11 +4,10 @@ import { Popover, OverlayTrigger } from 'react-bootstrap';
 import './form-builder.css';
 import DragContainer from './../../components/drag-container/drag-container';
 import Toolbar from './../../components/form-tools/toolbar';
+import CustomizerWindow from './../../components/customizer-window/customizer-window';
 
 class FormBuilder extends React.Component {
   static propTypes = {};
-
-  componentWillMount() {}
 
   componentDidMount() {
     setTimeout(() => {
@@ -54,6 +53,7 @@ class FormBuilder extends React.Component {
         <div className="block form-builder-property-window-container">
           <div className="form-builder-property-window">
             <div className="form-builder-header">Customize</div>
+            <CustomizerWindow />
           </div>
         </div>
       </div>

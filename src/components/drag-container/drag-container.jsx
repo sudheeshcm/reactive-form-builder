@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-dnd';
@@ -18,16 +17,10 @@ class DragContainer extends Component {
     sortItems: PropTypes.func.isRequired
   };
 
-  /* constructor(props) {
-    super(props);
-    // this.getItem = this.getItem.bind(this, item);
-  } */
-
   render() {
     const { items, sortItems } = this.props;
 
     const getItem = item => {
-      console.log('Get item called', item);
       switch (item.element) {
         case 'Header':
           return <HeaderItem item={item} />;
@@ -39,16 +32,14 @@ class DragContainer extends Component {
       }
     };
 
-    console.log('TEMP: ', getItem(items[0]));
-
     return (
       <div className="form-builder-draggable-area">
+        {console.log('Items: ', items)}
         {items.map((item, i) =>
           <DraggableItem
             key={item.id}
             index={i}
-            id={item.id}
-            text={item.text}
+            itemData={item}
             moveItem={sortItems}
           >
             {getItem(item)}
@@ -60,7 +51,7 @@ class DragContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.items
+  items: state.formBuilder.items
 });
 
 const mapDispatchToProps = dispatch => ({

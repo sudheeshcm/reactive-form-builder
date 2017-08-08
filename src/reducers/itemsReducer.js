@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import update from 'immutability-helper';
 
-const reducer = (
+const itemsReducer = (
   state = {
     error: null,
     items: [
@@ -15,7 +15,10 @@ const reducer = (
         id: 2,
         element: 'Header',
         text: 'Second Demo Heading',
-        static: true
+        static: true,
+        styles: {
+          color: 'blue'
+        }
       },
       {
         id: 3,
@@ -23,7 +26,13 @@ const reducer = (
         text: '3rd Demo Heading',
         static: true
       }
-    ]
+    ],
+    lastSelectedItem: {
+      id: 2,
+      element: 'Header',
+      text: 'Second Demo Heading',
+      static: true
+    }
   },
   action
 ) => {
@@ -35,6 +44,12 @@ const reducer = (
         items: updatedItems
       };
     }
+    case 'UPDATE_SELECTED_ITEM': {
+      const updatedState = update(state, {
+        lastSelectedItem: { $set: action.payload }
+      });
+      return updatedState;
+    }
     case 'ADD_ITEM_REJECTED': {
       return {
         ...state,
@@ -43,8 +58,7 @@ const reducer = (
     }
     case 'DELETE_ITEM_FULFILLED': {
       return {
-        ...state,
-        todos: action.payload
+        ...state
       };
     }
     case 'DELETE_ITEM_REJECTED': {
@@ -71,4 +85,4 @@ const reducer = (
   }
 };
 
-export default reducer;
+export default itemsReducer;
