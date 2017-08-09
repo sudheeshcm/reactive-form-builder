@@ -10,22 +10,17 @@ class CustomizerWindow extends Component {
     lastSelectedItem: PropTypes.object
   };
 
-  static defaultProps = {
+  /* static defaultProps = {
     lastSelectedItem: null
-  };
+  }; */
 
   render() {
     const { lastSelectedItem } = this.props;
 
-    const submit = values => {
-      // print the form values to the console
-      console.log(values);
-    };
-
     return (
       <div className="customizer-window-container">
         {lastSelectedItem.text}
-        <ItemCustomizationForm onSubmit={submit} />
+        <ItemCustomizationForm selectedItem={lastSelectedItem} />
       </div>
     );
   }

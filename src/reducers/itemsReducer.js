@@ -9,13 +9,15 @@ const itemsReducer = (
         id: 1,
         element: 'Header',
         text: 'Header Text',
-        static: true
+        static: true,
+        color: 'blue'
       },
       {
         id: 2,
         element: 'Header',
         text: 'Second Demo Heading',
         static: true,
+        color: 'blue',
         styles: {
           color: 'blue'
         }
@@ -24,14 +26,16 @@ const itemsReducer = (
         id: 3,
         element: 'Header',
         text: '3rd Demo Heading',
-        static: true
+        static: true,
+        color: 'blue'
       }
     ],
     lastSelectedItem: {
       id: 2,
       element: 'Header',
       text: 'Second Demo Heading',
-      static: true
+      static: true,
+      color: 'yellow'
     }
   },
   action

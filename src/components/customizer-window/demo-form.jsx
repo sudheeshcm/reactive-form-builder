@@ -1,9 +1,9 @@
+/* eslint-disable */
 import React, { Component } from 'react';
-import { Field, reduxForm, propTypes } from 'redux-form';
+import { Control, Form, actions } from 'react-redux-form';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
 
-const validate = values => {
+/* const validate = values => {
   const errors = {};
   if (!values.text) {
     errors.text = 'Required';
@@ -24,20 +24,23 @@ const warn = values => {
   return warnings;
 };
 
-const renderField = ({
+calss Field extends Component {
   input,
   label,
   type,
   meta: { touched, error, warning },
-  value
 }) =>
+
+render() {
+  return 
+}
   <div>
     <label>
       {label}
     </label>
     <div>
-      {console.log(input)}
-      <input {...input} placeholder={label} type={type} value={value} />
+      {console.log("Input values: ", input)}
+      <input {...input} placeholder={label} type={type} />
       {touched &&
         ((error &&
           <span>
@@ -48,53 +51,49 @@ const renderField = ({
               {warning}
             </span>))}
     </div>
-  </div>;
+  </div>; */
 
-renderField.propTypes = {
+/* renderField.propTypes = {
   ...propTypes
-};
+}; */
 
-class ItemCustomizationForm extends Component {
-  static propTypes = {
+export default class ItemCustomizationForm extends Component {
+  /* static propTypes = {
     ...propTypes
-  };
+  }; */
+
+  /* componentDidMount() {
+    this.handleInitialize();
+  } */
+
+  submit(values) {
+    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+  }
+
+  /* handleInitialize() {
+    const initData = {
+      text: this.props.initialValues.text,
+      color: this.props.initialValues.color
+    };
+
+    this.props.initialize(initData);
+  } */
 
   render() {
-    const { handleSubmit, pristine, reset, submitting } = this.props;
-    // const itemText = selectedItem ? selectedItem.text : '';
-    // const itemColor = selectedItem && selectedItem.styles &&
-    // selectedItem.styles.color ? selectedItem.styles.color : '';
-    return (
-      <form onSubmit={handleSubmit}>
-        <Field name="text" type="text" component={renderField} label="Text" />
-        <Field name="color" type="text" component={renderField} label="Color" />
-        <div>
-          <button type="submit" disabled={submitting}>
-            Submit
-          </button>
-          <button
-            type="button"
-            disabled={pristine || submitting}
-            onClick={reset}
-          >
-            Reset
-          </button>
-        </div>
-      </form>
-    );
+    return <Form model="forms" onSubmit={forms => this.submit(forms)} />;
   }
 }
+/* <label htmlFor="forms.text">Text:</label>
+        <Control.text model="forms.text" id="forms.text" />
 
-export default connect(
+        <label htmlFor="forms.color">Color:</label>
+        <Control.text model="forms.color" id="forms.color" />
+
+        <button type="submit">
+          Update
+        </button> */
+
+/*  export default connect(
   state => ({
     initialValues: state.formBuilder.lastSelectedItem
-  }),
-  null
-)(
-  reduxForm({
-    form: 'itemCustomizer',
-    enableReinitialize: true,
-    validate,
-    warn
-  })(ItemCustomizationForm)
-);
+  }), null)(ItemCustomizationForm); */
