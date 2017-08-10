@@ -8,6 +8,11 @@ export const updateSelectedItem = item => ({
   payload: item
 });
 
+export const updateInList = item => ({
+  type: 'UPDATE_ITEM_IN_LIST',
+  payload: item
+});
+
 export const moveItems = (dragIndex, hoverIndex) => ({
   type: 'MOVE_ITEMS',
   payload: {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './customizer-window.scss';
-import ItemCustomizationForm from './demo-form';
+import ItemCustomizationForm from './customizer-form';
 
 class CustomizerWindow extends Component {
   static propTypes = {
@@ -19,7 +19,6 @@ class CustomizerWindow extends Component {
 
     return (
       <div className="customizer-window-container">
-        {lastSelectedItem.text}
         <ItemCustomizationForm selectedItem={lastSelectedItem} />
       </div>
     );

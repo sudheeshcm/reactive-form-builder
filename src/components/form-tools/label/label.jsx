@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Label extends Component {
-  constructor() {
-    super();
+  static propTypes = {
+    item: PropTypes.object.isRequired
+  };
+
+  constructor(props) {
+    super(props);
+
     this.state = {
       ...this.state,
       styles: {
@@ -14,9 +20,10 @@ export default class Label extends Component {
   }
 
   render() {
+    const { item } = this.props;
     return (
-      <div style={this.state.styles}>
-        {this.state.defaultText}
+      <div style={item.styles || this.state.styles}>
+        {item.text || this.state.defaultText}
       </div>
     );
   }

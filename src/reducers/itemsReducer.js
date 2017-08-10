@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import lodash from 'lodash';
 import update from 'immutability-helper';
 
 const itemsReducer = (
@@ -10,14 +10,15 @@ const itemsReducer = (
         element: 'Header',
         text: 'Header Text',
         static: true,
-        color: 'blue'
+        styles: {
+          color: 'green'
+        }
       },
       {
         id: 2,
         element: 'Header',
         text: 'Second Demo Heading',
         static: true,
-        color: 'blue',
         styles: {
           color: 'blue'
         }
@@ -27,7 +28,9 @@ const itemsReducer = (
         element: 'Header',
         text: '3rd Demo Heading',
         static: true,
-        color: 'blue'
+        styles: {
+          color: 'black'
+        }
       }
     ],
     lastSelectedItem: {
@@ -35,7 +38,9 @@ const itemsReducer = (
       element: 'Header',
       text: 'Second Demo Heading',
       static: true,
-      color: 'yellow'
+      styles: {
+        color: 'blue'
+      }
     }
   },
   action
@@ -51,6 +56,16 @@ const itemsReducer = (
     case 'UPDATE_SELECTED_ITEM': {
       const updatedState = update(state, {
         lastSelectedItem: { $set: action.payload }
+      });
+      return updatedState;
+    }
+    case 'UPDATE_ITEM_IN_LIST': {
+      const { items } = state;
+      const itemIndex = lodash.findIndex(items, { id: action.payload.id });
+      const updatedState = update(state, {
+        items: {
+          $splice: [[itemIndex, 1, action.payload]]
+        }
       });
       return updatedState;
     }

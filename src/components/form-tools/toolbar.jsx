@@ -135,7 +135,6 @@ class Toolbar extends Component {
   );
 
   addHBox(options) {
-    console.log('Add H Box now', options);
     this.props.addItemToStore(options);
   }
 

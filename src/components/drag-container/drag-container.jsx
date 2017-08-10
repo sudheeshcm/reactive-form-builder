@@ -34,7 +34,6 @@ class DragContainer extends Component {
 
     return (
       <div className="form-builder-draggable-area">
-        {console.log('Items: ', items)}
         {items.map((item, i) =>
           <DraggableItem
             key={item.id}
