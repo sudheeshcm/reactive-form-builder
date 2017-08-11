@@ -54,6 +54,7 @@
     "arrow-parens": [2, "as-needed"],
     "no-unused-expressions": 1,
     "jsx-a11y/label-has-for": 1,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "react/no-multi-comp": 0
   }
 }

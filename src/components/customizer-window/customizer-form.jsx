@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Control, Form } from 'react-redux-form';
+import { Form } from 'react-redux-form';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Collapsible from 'react-collapsible';
 
-import './customizer-form.scss';
+import './customizer-form.css';
+import { Fields, DropDownFields } from './customizer-field';
 import { updateInList } from './../../actions/elementActions';
 
 class ItemCustomizationForm extends Component {
@@ -22,7 +24,6 @@ class ItemCustomizationForm extends Component {
   }
 
   submit(values) {
-    // window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
     // const isValid = this.isValidItem(values); // Validate **** TODO *****
     this.props.updateItemInList(values);
   }
@@ -34,29 +35,77 @@ class ItemCustomizationForm extends Component {
         onSubmit={customizerForm => this.submit(customizerForm)}
         className="customizer-form"
       >
-        <label htmlFor=".text" className="customizer-form-label">
-          Text:
-        </label>
-        <Control.text
-          model=".text"
-          id=".text"
-          className="form-control
-          customizer-form-input"
+        <Fields model="formBuilder.lastSelectedItem.text" text="Text" />
+        <Fields
+          model="formBuilder.lastSelectedItem.styles.color"
+          text="Color"
         />
+        <Fields
+          model="formBuilder.lastSelectedItem.styles.fontSize"
+          text="Font Size"
+        />
+        <Fields model="formBuilder.lastSelectedItem.height" text="Height" />
+        <Fields model="formBuilder.lastSelectedItem.width" text="Width" />
+        <Collapsible trigger="Border">
+          <DropDownFields
+            model="formBuilder.lastSelectedItem.styles.borderStyle"
+            text="Border Style"
+            options={['solid', 'dashed']}
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.borderRadius"
+            text="Border Radius"
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.borderWidth"
+            text="Border Width"
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.borderColor"
+            text="Border Color"
+          />
+        </Collapsible>
+        <Collapsible trigger="Margin">
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.marginTop"
+            text="Margin Top"
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.marginRight"
+            text="Margin Right"
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.marginBottom"
+            text="Margin Bottom"
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.marginLeft"
+            text="Margin Left"
+          />
+        </Collapsible>
+        <Collapsible trigger="Padding">
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.paddingTop"
+            text="Padding Top"
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.paddingRight"
+            text="Padding Right"
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.paddingBottom"
+            text="Padding Bottom"
+          />
+          <Fields
+            model="formBuilder.lastSelectedItem.styles.paddingLeft"
+            text="Padding Left"
+          />
+        </Collapsible>
 
-        <label htmlFor=".styles.color" className="customizer-form-label">
-          Color:
-        </label>
-        <Control.text
-          model=".styles.color"
-          id=".styles.color"
-          className="form-control customizer-form-input"
-        />
-        <br />
-        <button className="btn btn-default submit" type="submit">
+        <button className="btn btn-default button submit" type="submit">
           Update
         </button>
-        <button className="btn btn-default" type="reset">
+        <button className="btn btn-default button" type="reset">
           Reset
         </button>
       </Form>

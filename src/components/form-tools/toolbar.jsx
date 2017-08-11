@@ -5,7 +5,11 @@ import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 import ToolbarItem from './toolbar-item';
 import { addItem } from './../../actions/elementActions';
-import { defaultItems, defaultItemOptions } from './toolbar-item-defaults';
+import {
+  getCommomStyles,
+  defaultItems,
+  defaultItemOptions
+} from './toolbar-item-defaults';
 
 class Toolbar extends Component {
   static propTypes = {
@@ -71,6 +75,11 @@ class Toolbar extends Component {
 
     if (item.content) {
       elementOptions.content = item.content;
+    }
+
+    if (item.styles) {
+      const commonStyles = getCommomStyles();
+      elementOptions.styles = { ...commonStyles, ...item.styles };
     }
 
     if (item.href) {

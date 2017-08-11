@@ -10,12 +10,7 @@ export default class Label extends Component {
     super(props);
 
     this.state = {
-      ...this.state,
-      styles: {
-        color: 'grey',
-        fontSize: '15px'
-      },
-      defaultText: 'This is a demo Label'
+      ...this.state
     };
   }
 

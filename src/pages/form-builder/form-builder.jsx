@@ -33,12 +33,12 @@ class FormBuilder extends React.Component {
   render() {
     return (
       <div className="form-builder">
-        <div className="block form-builder-toolbox-container">
+        <div className="block form-builder-toolbox-container scrollbar-style">
           <div className="form-builder-toolbox">
             <Toolbar />
           </div>
         </div>
-        <div className="block form-builder-draggable-area-container">
+        <div className="block form-builder-draggable-area-container scrollbar-style">
           <OverlayTrigger
             ref={overlay => {
               this.sortItemOverlay = overlay;
@@ -50,7 +50,7 @@ class FormBuilder extends React.Component {
           </OverlayTrigger>
           <DragContainer />
         </div>
-        <div className="block form-builder-property-window-container">
+        <div className="block form-builder-property-window-container scrollbar-style">
           <div className="form-builder-property-window">
             <div className="form-builder-header">Customize</div>
             <CustomizerWindow />

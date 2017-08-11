@@ -65,6 +65,26 @@ export const defaultItemOptions = element => {
   }
 };
 
+export const getCommomStyles = () => ({
+  color: 'black',
+  fontSize: '12px',
+  fontWeight: '',
+  height: '100%',
+  width: '100%',
+  borderStyle: 'solid',
+  borderRadius: 0,
+  borderWidth: 0,
+  borderColor: 'black',
+  marginTop: '0px',
+  marginRight: '0px',
+  marginBottom: '0px',
+  marginLeft: '0px',
+  paddingTop: '0px',
+  paddingRight: '0px',
+  paddingBottom: '0px',
+  paddingLeft: '0px'
+});
+
 export const defaultItems = () => [
   {
     key: 'HBox',
@@ -78,14 +98,22 @@ export const defaultItems = () => [
     name: 'Header Text',
     icon: 'fa fa-header',
     static: true,
-    text: 'Placeholder Text...'
+    text: 'Placeholder Text...',
+    styles: {
+      color: 'grey',
+      fontSize: '20px'
+    }
   },
   {
     key: 'Label',
     name: 'Label',
     static: true,
     icon: 'fa fa-font',
-    text: 'Placeholder Text...'
+    text: 'This is a demo Label',
+    styles: {
+      color: 'grey',
+      fontSize: '15px'
+    }
   },
   {
     key: 'Paragraph',

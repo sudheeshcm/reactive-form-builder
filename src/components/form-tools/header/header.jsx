@@ -9,12 +9,7 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ...this.state,
-      styles: {
-        color: 'grey',
-        fontSize: '20px'
-      },
-      defaultText: 'Header Text'
+      ...this.state
     };
   }
 
