@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Button } from 'react-bootstrap';
 
-export default class Nav extends React.Component {
+export default class Nav extends Component {
   constructor() {
     super();
     this.state = {

@@ -68,10 +68,10 @@ export const defaultItemOptions = element => {
 export const getCommomStyles = () => ({
   color: 'black',
   fontSize: '12px',
-  fontWeight: '',
-  height: '100%',
+  fontWeight: '300',
+  height: '25px',
   width: '100%',
-  borderStyle: 'solid',
+  borderStyle: 'none',
   borderRadius: 0,
   borderWidth: 0,
   borderColor: 'black',

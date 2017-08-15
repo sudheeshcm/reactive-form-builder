@@ -11,7 +11,23 @@ const itemsReducer = (
         text: 'Header Text',
         static: true,
         styles: {
-          color: 'green'
+          color: 'green',
+          fontSize: '20px',
+          fontWeight: '300',
+          height: '25px',
+          width: '100%',
+          borderStyle: 'solid',
+          borderRadius: 0,
+          borderWidth: 0,
+          borderColor: 'black',
+          marginTop: '0px',
+          marginRight: '0px',
+          marginBottom: '0px',
+          marginLeft: '0px',
+          paddingTop: '0px',
+          paddingRight: '0px',
+          paddingBottom: '0px',
+          paddingLeft: '0px'
         }
       },
       {
@@ -20,7 +36,23 @@ const itemsReducer = (
         text: 'Second Demo Heading',
         static: true,
         styles: {
-          color: 'blue'
+          color: 'blue',
+          fontSize: '20px',
+          fontWeight: '300',
+          height: '25px',
+          width: '100%',
+          borderStyle: 'solid',
+          borderRadius: 0,
+          borderWidth: 0,
+          borderColor: 'black',
+          marginTop: '0px',
+          marginRight: '0px',
+          marginBottom: '0px',
+          marginLeft: '0px',
+          paddingTop: '0px',
+          paddingRight: '0px',
+          paddingBottom: '0px',
+          paddingLeft: '0px'
         }
       },
       {
@@ -29,17 +61,49 @@ const itemsReducer = (
         text: '3rd Demo Heading',
         static: true,
         styles: {
-          color: 'black'
+          color: 'black',
+          fontSize: '20px',
+          fontWeight: '300',
+          height: '25px',
+          width: '100%',
+          borderStyle: 'solid',
+          borderRadius: 0,
+          borderWidth: 0,
+          borderColor: 'black',
+          marginTop: '0px',
+          marginRight: '0px',
+          marginBottom: '0px',
+          marginLeft: '0px',
+          paddingTop: '0px',
+          paddingRight: '0px',
+          paddingBottom: '0px',
+          paddingLeft: '0px'
         }
       }
     ],
     lastSelectedItem: {
-      id: 2,
+      id: 1,
       element: 'Header',
-      text: 'Second Demo Heading',
+      text: 'Header Text',
       static: true,
       styles: {
-        color: 'blue'
+        color: 'green',
+        fontSize: '20px',
+        fontWeight: '300',
+        height: '25px',
+        width: '100%',
+        borderStyle: 'solid',
+        borderRadius: 0,
+        borderWidth: 0,
+        borderColor: 'black',
+        marginTop: '0px',
+        marginRight: '0px',
+        marginBottom: '0px',
+        marginLeft: '0px',
+        paddingTop: '0px',
+        paddingRight: '0px',
+        paddingBottom: '0px',
+        paddingLeft: '0px'
       }
     }
   },

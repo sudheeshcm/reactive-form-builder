@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import Nav from '../components/layout/Nav';
 import Dashboard from './dashboard';
 import FormBuilder from './form-builder/form-builder';
 
-class Home extends React.Component {
+class Home extends Component {
   static propTypes = {
     location: PropTypes.object.isRequired
   };

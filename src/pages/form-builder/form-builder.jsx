@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 import './form-builder.css';
@@ -6,7 +6,7 @@ import DragContainer from './../../components/drag-container/drag-container';
 import Toolbar from './../../components/form-tools/toolbar';
 import CustomizerWindow from './../../components/customizer-window/customizer-window';
 
-class FormBuilder extends React.Component {
+class FormBuilder extends Component {
   static propTypes = {};
 
   componentDidMount() {

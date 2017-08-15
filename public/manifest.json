@@ -1,6 +1,6 @@
 {
-  "short_name": "React Form Builder",
-  "name": "Create React App Sample",
+  "short_name": "Reactive Form Builder",
+  "name": "React Redux Form Builder App",
   "icons": [
     {
       "src": "favicon.ico",

@@ -44,13 +44,19 @@ class ItemCustomizationForm extends Component {
           model="formBuilder.lastSelectedItem.styles.fontSize"
           text="Font Size"
         />
-        <Fields model="formBuilder.lastSelectedItem.height" text="Height" />
-        <Fields model="formBuilder.lastSelectedItem.width" text="Width" />
+        <Fields
+          model="formBuilder.lastSelectedItem.styles.height"
+          text="Height"
+        />
+        <Fields
+          model="formBuilder.lastSelectedItem.styles.width"
+          text="Width"
+        />
         <Collapsible trigger="Border">
           <DropDownFields
             model="formBuilder.lastSelectedItem.styles.borderStyle"
             text="Border Style"
-            options={['solid', 'dashed']}
+            options={['none', 'solid', 'dashed']}
           />
           <Fields
             model="formBuilder.lastSelectedItem.styles.borderRadius"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Control, Fieldset } from 'react-redux-form';
+import { Control, Field, Fieldset } from 'react-redux-form';
 import PropTypes from 'prop-types';
 
 export class Fields extends Component {
@@ -18,8 +18,7 @@ export class Fields extends Component {
         <Control.text
           model={model}
           id={model}
-          className="form-control
-          customizer-form-input"
+          className="form-control customizer-form-input"
         />
       </Fieldset>
     );
@@ -41,14 +40,16 @@ export class DropDownFields extends Component {
       </option>
     );
     return (
-      <Fieldset model={model}>
+      <div>
         <label htmlFor={model} className="customizer-form-label">
           {text}:
         </label>
-        <select className="btn btn-default customizer-form-dropdown">
-          {selectOptions}
-        </select>
-      </Fieldset>
+        <Field model={model}>
+          <select className="form-control customizer-form-dropdown">
+            {selectOptions}
+          </select>
+        </Field>
+      </div>
     );
   }
 }

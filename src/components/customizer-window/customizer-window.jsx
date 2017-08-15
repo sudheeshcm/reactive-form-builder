@@ -10,9 +10,9 @@ class CustomizerWindow extends Component {
     lastSelectedItem: PropTypes.object
   };
 
-  /* static defaultProps = {
+  static defaultProps = {
     lastSelectedItem: null
-  }; */
+  };
 
   render() {
     const { lastSelectedItem } = this.props;
