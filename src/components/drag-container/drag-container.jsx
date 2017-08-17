@@ -4,10 +4,8 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PropTypes from 'prop-types';
 
-import DraggableItem from './../form-tools/draggable-item';
-import HeaderItem from './../form-tools/header/header';
-import LabelItem from './../form-tools/label/label';
 import { moveItems } from './../../actions/elementActions';
+import { getDraggableItem } from './../../services/itemService';
 
 import './drag-container.scss';
 
@@ -20,30 +18,9 @@ class DragContainer extends Component {
   render() {
     const { items, sortItems } = this.props;
 
-    const getItem = item => {
-      switch (item.element) {
-        case 'Header':
-          return <HeaderItem item={item} />;
-        case 'Label':
-          return <LabelItem item={item} />;
-        default:
-          /* TODO ***** REMOVE DEFAULT CASE ***** */
-          return <HeaderItem item={item} />;
-      }
-    };
-
     return (
       <div className="form-builder-draggable-area">
-        {items.map((item, i) =>
-          <DraggableItem
-            key={item.id}
-            index={i}
-            itemData={item}
-            moveItem={sortItems}
-          >
-            {getItem(item)}
-          </DraggableItem>
-        )}
+        {items.map((item, i) => getDraggableItem(item, i, null, sortItems))}
       </div>
     );
   }

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
-import { DragSource, DropTarget } from 'react-dnd';
 import { connect } from 'react-redux';
+import { DragSource, DropTarget } from 'react-dnd';
 
-import { updateSelectedItem } from './../../actions/elementActions';
+import './draggable-hbox.css';
+import {
+  updateSelectedItem,
+  moveHorizontalItems
+} from './../../actions/elementActions';
+import { getDraggableItem } from './../../services/itemService';
 
 const itemSource = {
   beginDrag(props) {
@@ -77,41 +82,46 @@ function collect(connectToDrag, monitor) {
   };
 }
 
-class DraggableItem extends Component {
+class DraggableHBox extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
-    children: PropTypes.node.isRequired,
     itemData: PropTypes.object.isRequired,
     updateSelection: PropTypes.func.isRequired,
     lastSelectedItem: PropTypes.object.isRequired,
-    dimensions: PropTypes.object.isRequired
+    sortHorizontalItems: PropTypes.func.isRequired
   };
 
   render() {
     const {
       itemData,
-      children,
       isDragging,
       connectDragSource,
       connectDropTarget,
       lastSelectedItem,
-      dimensions
+      updateSelection,
+      sortHorizontalItems
     } = this.props;
     const isActive = lastSelectedItem && lastSelectedItem.id === itemData.id;
+    const parentId = itemData.id;
 
     return connectDragSource(
       connectDropTarget(
         <div
           role="presentation"
-          className={`sortable-item
+          style={itemData.styles}
+          className={`sortable-hbox sortable-item
             ${isDragging ? 'dragging' : ''}
             ${isActive ? 'selected' : ''}`}
-          onClick={$event => this.props.updateSelection(itemData, $event)}
-          style={dimensions}
+          onClick={$event => updateSelection(itemData, $event)}
         >
-          {children}
+          <div className="demo-hbox-label">Demo HBox</div>
+          {itemData.children && itemData.children.length
+            ? itemData.children.map((item, i) =>
+                getDraggableItem(item, i, parentId, sortHorizontalItems)
+              )
+            : null}
         </div>
       )
     );
@@ -126,11 +136,14 @@ const mapDispatchToProps = dispatch => ({
   updateSelection: (item, e) => {
     dispatch(updateSelectedItem(item));
     e.stopPropagation();
+  },
+  sortHorizontalItems: (parentId, dragIndex, hoverIndex) => {
+    dispatch(moveHorizontalItems(parentId, dragIndex, hoverIndex));
   }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
   DragSource('tool-item', itemSource, collect)(
-    DropTarget('tool-item', itemTarget, collectDrop)(DraggableItem)
+    DropTarget('tool-item', itemTarget, collectDrop)(DraggableHBox)
   )
 );

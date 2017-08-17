@@ -16,7 +16,7 @@ const itemsReducer = (
           fontWeight: '300',
           height: '25px',
           width: '100%',
-          borderStyle: 'solid',
+          borderStyle: 'none',
           borderRadius: 0,
           borderWidth: 0,
           borderColor: 'black',
@@ -57,6 +57,114 @@ const itemsReducer = (
       },
       {
         id: 3,
+        element: 'HBox',
+        text: 'Demo HBox',
+        children: [
+          {
+            id: 31,
+            element: 'Header',
+            text: 'Sub Header',
+            isChild: true,
+            parentId: 3,
+            static: true,
+            styles: {
+              color: 'black',
+              fontSize: '12px',
+              fontWeight: '300',
+              height: '25px',
+              width: '150px',
+              borderStyle: 'solid',
+              borderRadius: 0,
+              borderWidth: 1,
+              borderColor: 'black',
+              marginTop: '0px',
+              marginRight: '0px',
+              marginBottom: '0px',
+              marginLeft: '0px',
+              paddingTop: '5px',
+              paddingRight: '5px',
+              paddingBottom: '5px',
+              paddingLeft: '5px'
+            }
+          },
+          {
+            id: 32,
+            element: 'Label',
+            text: 'Sub Label',
+            isChild: true,
+            parentId: 3,
+            static: true,
+            styles: {
+              color: 'black',
+              fontSize: '12px',
+              fontWeight: '300',
+              height: '25px',
+              width: '150px',
+              borderStyle: 'solid',
+              borderRadius: 0,
+              borderWidth: 1,
+              borderColor: 'black',
+              marginTop: '0px',
+              marginRight: '0px',
+              marginBottom: '0px',
+              marginLeft: '0px',
+              paddingTop: '5px',
+              paddingRight: '5px',
+              paddingBottom: '5px',
+              paddingLeft: '5px'
+            }
+          },
+          {
+            id: 33,
+            element: 'Label',
+            text: '3rd Demo Sub label',
+            isChild: true,
+            parentId: 3,
+            static: true,
+            styles: {
+              color: 'blue',
+              fontSize: '12px',
+              fontWeight: '300',
+              height: '25px',
+              width: '150px',
+              borderStyle: 'solid',
+              borderRadius: 0,
+              borderWidth: 1,
+              borderColor: 'blue',
+              marginTop: '0px',
+              marginRight: '0px',
+              marginBottom: '0px',
+              marginLeft: '0px',
+              paddingTop: '5px',
+              paddingRight: '5px',
+              paddingBottom: '5px',
+              paddingLeft: '5px'
+            }
+          }
+        ],
+        static: true,
+        styles: {
+          color: 'black',
+          fontSize: '12px',
+          fontWeight: '300',
+          height: '120px',
+          width: '100%',
+          borderStyle: 'solid',
+          borderRadius: '4px',
+          borderWidth: '0.5px',
+          borderColor: 'lightgrey',
+          marginTop: '0px',
+          marginRight: '0px',
+          marginBottom: '5px',
+          marginLeft: '0px',
+          paddingTop: '10px',
+          paddingRight: '10px',
+          paddingBottom: '10px',
+          paddingLeft: '10px'
+        }
+      },
+      {
+        id: 4,
         element: 'Header',
         text: '3rd Demo Heading',
         static: true,
@@ -66,7 +174,7 @@ const itemsReducer = (
           fontWeight: '300',
           height: '25px',
           width: '100%',
-          borderStyle: 'solid',
+          borderStyle: 'none',
           borderRadius: 0,
           borderWidth: 0,
           borderColor: 'black',
@@ -92,7 +200,7 @@ const itemsReducer = (
         fontWeight: '300',
         height: '25px',
         width: '100%',
-        borderStyle: 'solid',
+        borderStyle: 'none',
         borderRadius: 0,
         borderWidth: 0,
         borderColor: 'black',
@@ -158,6 +266,25 @@ const itemsReducer = (
       const updatedState = update(state, {
         items: {
           $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
+        }
+      });
+      return updatedState;
+    }
+    case 'MOVE_HORIZONTAL_ITEMS': {
+      const { items } = state;
+      const dragIndex = action.payload.dragIndex;
+      const hoverIndex = action.payload.hoverIndex;
+      const parentIndex = lodash.findIndex(items, {
+        id: action.payload.parentId
+      });
+      const dragItem = items[parentIndex].children[dragIndex];
+      const updatedState = update(state, {
+        items: {
+          [parentIndex]: {
+            children: {
+              $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
+            }
+          }
         }
       });
       return updatedState;

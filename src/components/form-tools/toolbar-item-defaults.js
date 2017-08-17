@@ -91,7 +91,22 @@ export const defaultItems = () => [
     name: 'H Box',
     icon: 'fa fa-object-group',
     static: true,
-    isHBox: true
+    children: [],
+    isHBox: true,
+    styles: {
+      height: '40px',
+      color: 'black',
+      fontSize: '14px',
+      borderStyle: 'solid',
+      borderWidth: '0.5px',
+      borderColor: 'lightgrey',
+      borderRadius: '4px',
+      paddingTop: '10px',
+      paddingRight: '10px',
+      paddingBottom: '10px',
+      paddingLeft: '10px',
+      marginBottom: '5px'
+    }
   },
   {
     key: 'Header',
@@ -120,13 +135,15 @@ export const defaultItems = () => [
     name: 'Paragraph',
     static: true,
     icon: 'fa fa-paragraph',
-    text: 'Placeholder Text...'
+    text: 'Placeholder Text...',
+    disabled: true
   },
   {
     key: 'LineBreak',
     name: 'Line Break',
     static: true,
-    icon: 'fa fa-arrows-h'
+    icon: 'fa fa-arrows-h',
+    disabled: true
   },
   {
     key: 'Dropdown',
@@ -135,7 +152,8 @@ export const defaultItems = () => [
     icon: 'fa fa-caret-square-o-down',
     label: 'Placeholder Label',
     field_name: 'dropdown_',
-    options: []
+    options: [],
+    disabled: true
   },
   {
     key: 'Tags',
@@ -144,7 +162,8 @@ export const defaultItems = () => [
     icon: 'fa fa-tags',
     label: 'Placeholder Label',
     field_name: 'tags_',
-    options: []
+    options: [],
+    disabled: true
   },
   {
     key: 'Checkboxes',
@@ -153,7 +172,8 @@ export const defaultItems = () => [
     icon: 'fa fa-check-square-o',
     label: 'Placeholder Label',
     field_name: 'checkboxes_',
-    options: []
+    options: [],
+    disabled: true
   },
   {
     key: 'RadioButtons',
@@ -162,7 +182,8 @@ export const defaultItems = () => [
     icon: 'fa fa-dot-circle-o',
     label: 'Placeholder Label',
     field_name: 'radio_buttons_',
-    options: []
+    options: [],
+    disabled: true
   },
   {
     key: 'TextInput',
@@ -170,7 +191,8 @@ export const defaultItems = () => [
     name: 'Text Input',
     label: 'Placeholder Label',
     icon: 'fa fa-font',
-    field_name: 'text_input_'
+    field_name: 'text_input_',
+    disabled: true
   },
   {
     key: 'NumberInput',
@@ -178,7 +200,8 @@ export const defaultItems = () => [
     name: 'Number Input',
     label: 'Placeholder Label',
     icon: 'fa fa-plus',
-    field_name: 'number_input_'
+    field_name: 'number_input_',
+    disabled: true
   },
   {
     key: 'TextArea',
@@ -186,7 +209,8 @@ export const defaultItems = () => [
     name: 'Multi-line Input',
     label: 'Placeholder Label',
     icon: 'fa fa-text-height',
-    field_name: 'text_area_'
+    field_name: 'text_area_',
+    disabled: true
   },
   {
     key: 'Image',
@@ -194,7 +218,8 @@ export const defaultItems = () => [
     label: '',
     icon: 'fa fa-photo',
     field_name: 'image_',
-    src: ''
+    src: '',
+    disabled: true
   },
   {
     key: 'Rating',
@@ -202,7 +227,8 @@ export const defaultItems = () => [
     name: 'Rating',
     label: 'Placeholder Label',
     icon: 'fa fa-star',
-    field_name: 'rating_'
+    field_name: 'rating_',
+    disabled: true
   },
   {
     key: 'DatePicker',
@@ -211,7 +237,8 @@ export const defaultItems = () => [
     name: 'Date',
     icon: 'fa fa-calendar',
     label: 'Placeholder Label',
-    field_name: 'date_picker_'
+    field_name: 'date_picker_',
+    disabled: true
   },
   {
     key: 'Signature',
@@ -219,7 +246,8 @@ export const defaultItems = () => [
     name: 'Signature',
     icon: 'fa fa-pencil-square-o',
     label: 'Signature',
-    field_name: 'signature_'
+    field_name: 'signature_',
+    disabled: true
   },
   {
     key: 'HyperLink',
@@ -227,7 +255,8 @@ export const defaultItems = () => [
     icon: 'fa fa-link',
     static: true,
     text: 'Placeholder Web site link ...',
-    href: 'http://www.example.com'
+    href: 'http://www.example.com',
+    disabled: true
   },
   {
     key: 'Download',
@@ -237,7 +266,8 @@ export const defaultItems = () => [
     text: 'Placeholder file name ...',
     field_name: 'download_',
     file_path: '',
-    _href: ''
+    _href: '',
+    disabled: true
   },
   {
     key: 'Range',
@@ -250,6 +280,7 @@ export const defaultItems = () => [
     min_value: 1,
     max_value: 5,
     min_label: 'Easy',
-    max_label: 'Difficult'
+    max_label: 'Difficult',
+    disabled: true
   }
 ];

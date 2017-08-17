@@ -20,3 +20,12 @@ export const moveItems = (dragIndex, hoverIndex) => ({
     hoverIndex
   }
 });
+
+export const moveHorizontalItems = (parentId, dragIndex, hoverIndex) => ({
+  type: 'MOVE_HORIZONTAL_ITEMS',
+  payload: {
+    parentId,
+    dragIndex,
+    hoverIndex
+  }
+});

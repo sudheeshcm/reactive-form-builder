@@ -65,6 +65,11 @@
 
 .item-list-li {
   list-style: none;
+  .disabled {
+    background-color: lightgrey;
+    color: darkgray;
+    cursor: not-allowed;
+  }
 }
 
 .tool-item {

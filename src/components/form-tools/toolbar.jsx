@@ -51,11 +51,6 @@ class Toolbar extends Component {
       required: false
     };
 
-    if (item && item.key && item.key === 'HBox') {
-      this.addHBox(elementOptions);
-      return;
-    }
-
     if (item.static) {
       elementOptions.bold = false;
       elementOptions.italic = false;
@@ -120,6 +115,11 @@ class Toolbar extends Component {
 
     if (item.options) {
       elementOptions.options = defaultItemOptions(elementOptions.element);
+    }
+
+    if (item && item.key && item.key === 'HBox') {
+      this.addHBox(elementOptions);
+      return;
     }
 
     this.props.addItemToStore(elementOptions);

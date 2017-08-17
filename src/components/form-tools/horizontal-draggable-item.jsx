@@ -29,31 +29,31 @@ const itemTarget = {
     // eslint-disable-next-line
     const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
 
-    // Get vertical middle
-    const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+    // Get horizontall middle
+    const hoverMiddleX = (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
 
     // Determine mouse position
     const clientOffset = monitor.getClientOffset();
 
     // Get pixels to the top
-    const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+    const hoverClientX = clientOffset.x - hoverBoundingRect.left;
 
-    // Only perform the move when the mouse has crossed half of the items height
-    // When dragging downwards, only move when the cursor is below 50%
-    // When dragging upwards, only move when the cursor is above 50%
+    // Only perform the move when the mouse has crossed half of the items length
+    // When dragging to left, only move when the cursor is to the left of 50%
+    // When dragging to right, only move when the cursor is to the right of 50%
 
-    // Dragging downwards
-    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+    // Dragging right
+    if (dragIndex < hoverIndex && hoverClientX < hoverMiddleX) {
       return;
     }
 
-    // Dragging upwards
-    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+    // Dragging left
+    if (dragIndex > hoverIndex && hoverClientX > hoverMiddleX) {
       return;
     }
 
-    // Time to actually perform the action
-    props.moveItem(dragIndex, hoverIndex);
+    // Time to actually perform the action - #passes parent id as parentId
+    props.moveHorizontalItem(props.parentId, dragIndex, hoverIndex);
 
     // Note: we're mutating the monitor item here!
     // Generally it's better to avoid mutations,
@@ -77,7 +77,7 @@ function collect(connectToDrag, monitor) {
   };
 }
 
-class DraggableItem extends Component {
+class HDraggableItem extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
@@ -105,7 +105,7 @@ class DraggableItem extends Component {
       connectDropTarget(
         <div
           role="presentation"
-          className={`sortable-item
+          className={`sortable-item horizontal-item
             ${isDragging ? 'dragging' : ''}
             ${isActive ? 'selected' : ''}`}
           onClick={$event => this.props.updateSelection(itemData, $event)}
@@ -130,7 +130,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  DragSource('tool-item', itemSource, collect)(
-    DropTarget('tool-item', itemTarget, collectDrop)(DraggableItem)
+  DragSource('horizontal-tool-item', itemSource, collect)(
+    DropTarget('horizontal-tool-item', itemTarget, collectDrop)(HDraggableItem)
   )
 );

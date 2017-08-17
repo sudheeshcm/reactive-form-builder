@@ -1,0 +1,15 @@
+.sortable-hbox {
+  border: solid lightgrey .5px;
+
+  .demo-hbox-label {
+    margin-top: -5px;
+    color: black;
+    font-size: 12px;
+  }
+
+  .sortable-item {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+  }
+}
