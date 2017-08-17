@@ -25,7 +25,8 @@ export const getDraggableItem = (item, i, parentId, sortItems) => {
       item.styles.width +
       item.styles.marginLeft +
       item.styles.marginRight +
-      item.styles.borderWidth * 2
+      item.styles.borderWidth +
+      item.styles.borderWidth
   };
   if (item.element !== 'HBox' && !item.isChild) {
     draggableItem = (
