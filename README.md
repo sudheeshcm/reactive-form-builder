@@ -24,11 +24,11 @@ React based dynamic form builder application that lets you create a dynamic form
 
 
 #### Steps to run app
-Clone preject: `git clone https://github.com/sudheeshcm/reactive-form-builder.git`
-Change directory: `cd reactive-form-builder`
-Install modules: `yarn`
+1. Clone preject: `git clone https://github.com/sudheeshcm/reactive-form-builder.git`
+2. Change directory: `cd reactive-form-builder`
+3. Install modules: `yarn`
 
 
 #### Run the application
-development mode: `npm start`
-production mode: `npm run build`
+- development mode: `npm start`
+- production mode: `npm run build`
