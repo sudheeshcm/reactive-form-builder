@@ -20,7 +20,7 @@ React based dynamic form builder application that lets you create a dynamic form
 
 
 ####  Technologies used
-*React Redux, React DnD, Webpack*
+*React Redux, React DnD, Webpack, Node 8*
 
 
 #### Steps to run app
@@ -30,5 +30,5 @@ React based dynamic form builder application that lets you create a dynamic form
 
 
 #### Run the application
-- development mode: `npm start`
-- production mode: `npm run build`
+- development mode: `yarn start`
+- production mode: `yarn build`
