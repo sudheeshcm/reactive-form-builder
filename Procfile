@@ -1,2 +1,2 @@
-web: node scripts/heroku-start.js
+web: yarn build && node scripts/heroku-start.js
 
