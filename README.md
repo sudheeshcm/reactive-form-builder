@@ -1,6 +1,7 @@
 [![Reactive Form Builder](https://img.shields.io/badge/Reactive%20Form%20Builder-Under_Development-yellow.svg)](https://github.com/sudheeshcm/reactive-form-builder)
 
-[![Watch the video](https://raw.githubusercontent.com/sudheeshcm/reactive-form-builder/master/public/thumbnail.jpg)](https://raw.githubusercontent.com/sudheeshcm/reactive-form-builder/master/public/reactive-form-builder.mp4)
+https://github.com/user-attachments/assets/253122ee-d78e-4c93-9f1e-ee3e698be683
+
 
 # **reactive-form-builder**
 React based dynamic form builder application that lets you create a dynamic form with custom buttons, text boxes and other tools. App provides a drag and drop environment to style your own form with customizable properties for each tool you add to the form.
